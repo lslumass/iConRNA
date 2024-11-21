@@ -1,13 +1,13 @@
 # Intermediate resolution model for Condensation of RNA (iConRNA)
 <img src="./image1.png"/>
 
-## dependencies
+## 0. dependencies
 1. [HyresBuilder](https://github.com/lslumass/HyresBuilder)
 2. [psfgen-python](https://psfgen.robinbetz.com/)
 3. [CHARMM-GUI](https://www.charmm-gui.org/)
 4. [OpenMM 8.2.0](https://github.com/openmm/openmm)
 
-## create CG PDB file
+## 1. create CG PDB file
 ### A. for disordered RNA
 create CG RNA chain using "RNAbuilder" function of [HyresBuilder](https://github.com/lslumass/HyresBuilder).  
 **example**: [build_CG_RNA.py](./script/build_CG_RNA.py)  
@@ -21,7 +21,7 @@ create CG RNA chain using "RNAbuilder" function of [HyresBuilder](https://github
 6. download the PDB file labeled as "CHARMM PDB".  
 7. convert it to CG model using [at2cg_RNA.py](./script/at2cg_RNA.py)  
 
-## create PSF file
+## 2. create PSF file
 [psfgen_iConRNA.py](./script/psfgen_iConRNA.py) was used to create the psf files for various systems.  
 ```
 usage: psfgen_iConRNA.py [-h] -i INPUT_PDB_FILES [INPUT_PDB_FILES ...] -o OUTPUT_PSF_FILE [-n NUM_OF_CHAINS [NUM_OF_CHAINS ...]]
@@ -53,7 +53,7 @@ python psfgen_iConRNA.py -i monomer.pdb -n 100 -o llps.psf
 python psfgen_iConRNA.py -i chainA.pdb chainB.pdb -n 20 30 -o conf.psf
 ```
 
-## run the simulation
+## 3. run the simulation
 [run.py](./script/run.py) was created to run the simulation.  
 ```
 usage: run.py [-h] [-c PDB] [-p PSF] [-t TEMP] [-b BOX [BOX ...]] [-s SALT] [-e ENS] [-m MG]
