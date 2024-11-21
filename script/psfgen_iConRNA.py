@@ -31,7 +31,7 @@ def main():
         num = num_list[0]
         for i in range(num):
             segid = f"R{i}"
-            gen.add_segment(segid=segid, pdbfile=pdb)
+            gen.add_segment(segid=segid, pdbfile=pdb, auto_angles=False, auto_dihedrals=False)
         gen.write_psf(filename=outpsf)
 
     else:   # combine different pdb files with different copies
@@ -39,7 +39,7 @@ def main():
             # loop through each pdb and make copies
             for i in range(num):
                 segid = f"R{chr(64+idx)}{i}" 
-                gen.add_segment(segid=segid, pdbfile=pdb)
+                gen.add_segment(segid=segid, pdbfile=pdb, auto_angles=False, auto_dihedrals=False)
         gen.write_psf(filename=outpsf)
 
 if __name__ == '__main__':
