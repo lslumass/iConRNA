@@ -20,6 +20,7 @@ create CG RNA chain using "RNAbuilder" function of [HyresBuilder](https://github
 5. in this step, choose the 5PHO as the 5' terminal groups ("Terminal group patching").
 6. download the PDB file labeled as "CHARMM PDB".  
 7. convert it to CG model using [at2cg_RNA.py](./script/at2cg_RNA.py)  
+```python at2cg_RNA.py input_AA_pdb output_CG_pdb```
 
 ## 2. create PSF file
 [psfgen_iConRNA.py](./script/psfgen_iConRNA.py) was used to create the psf files for various systems.  
