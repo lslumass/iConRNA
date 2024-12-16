@@ -40,9 +40,9 @@ if ensemble in ['NPT', 'NVT']:
     if len(args.box) == 1:
         lx, ly, lz = args.box[0], args.box[0], args.box[0]
     elif len(args.box) == 3:
-        lx = args.box[0]*unit.nanometer
-        ly = args.box[1]*unit.nanometer
-        lz = args.box[2]*unit.nanometer
+        lx = args.box[0]
+        ly = args.box[1]
+        lz = args.box[2]
     else:
         print("Error: You must provide either one or three values for box.")
         exit(1)
@@ -94,6 +94,7 @@ if ensemble == 'non':
     system = psf.createSystem(params, nonbondedMethod=CutoffNonPeriodic, constraints=HBonds)
 else:
     psf.setBox(lx, ly, lz)
+    top.setPeriodicBoxVectors((a, b, c))
     system = psf.createSystem(params, nonbondedMethod=CutoffPeriodic, constraints=HBonds)
     system.setDefaultPeriodicBoxVectors(a, b, c)
 
