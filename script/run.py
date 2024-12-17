@@ -19,7 +19,7 @@ parser.add_argument('-c', "--pdb", default='conf.pdb', help="pdb file, default i
 parser.add_argument('-p', "--psf", default='conf.psf', help="psf file, default is conf.psf")
 parser.add_argument('-t', "--temp", default=303, type=float, help="system temperature, default is 303 K")
 parser.add_argument('-b', "--box", nargs='+', type=float, help="box dimensions in nanometer, e.g., '50 50 50' ")
-parser.add_argument('-s', "--salt", default=150.0, type=float, help="salt concentration in mM, default is 150 mM")
+parser.add_argument('-s', "--salt", default=0.0, type=float, help="salt concentration in mM, default is 0.0 mM")
 parser.add_argument('-e', "--ens", default='NVT', type=str, help="simulation ensemble, NPT, NVT, or non, non is for non-periodic system")
 parser.add_argument('-m', "--Mg", default=0.0, type=float, help="Mg2+ concentration in mM")
 
@@ -95,6 +95,7 @@ if ensemble == 'non':
 else:
     psf.setBox(lx, ly, lz)
     top.setPeriodicBoxVectors((a, b, c))
+    top.setUnitCellDimensions((lx, ly,lz))
     system = psf.createSystem(params, nonbondedMethod=CutoffPeriodic, constraints=HBonds)
     system.setDefaultPeriodicBoxVectors(a, b, c)
 
