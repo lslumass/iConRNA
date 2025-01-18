@@ -37,8 +37,12 @@ def main():
     else:   # combine different pdb files with different copies
         for idx, (pdb, num) in enumerate(zip(pdb_list, num_list), 1):
             # loop through each pdb and make copies
+            if pdb == 'mg.pdb':
+                seg = 'Mg'
+            else:
+                seg = f"R{chr(64+idx)}"
             for i in range(num):
-                segid = f"R{chr(64+idx)}{i}" 
+                segid = f"{seg}{i}" 
                 gen.add_segment(segid=segid, pdbfile=pdb, auto_angles=False, auto_dihedrals=False)
         gen.write_psf(filename=outpsf)
 

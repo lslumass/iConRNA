@@ -118,6 +118,8 @@ elif ensemble == 'NVT':
     print('This is a NVT system')
 elif ensemble == 'non':
     print('This is a non-periodic system')
+else:
+    print('Only NPT, NVT, and non-periodic system are supported!')
 integrator = LangevinMiddleIntegrator(temperture, friction, dt)
 plat = Platform.getPlatformByName('CUDA')
 prop = {'Precision': 'mixed', 'DeviceIndex': gpu_id}
