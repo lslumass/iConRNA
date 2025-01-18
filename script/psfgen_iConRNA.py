@@ -37,7 +37,7 @@ def main():
     else:   # combine different pdb files with different copies
         for idx, (pdb, num) in enumerate(zip(pdb_list, num_list), 1):
             # loop through each pdb and make copies
-            if pdb == 'mg.pdb':
+            if pdb == 'mg.pdb' or 'Mg.pdb':
                 seg = 'Mg'
             else:
                 seg = f"R{chr(64+idx)}"

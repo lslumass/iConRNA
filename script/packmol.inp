@@ -1,0 +1,13 @@
+tolerance 5.0
+filetype pdb
+output conf.pdb
+seed 1234567
+randominitialpoint
+add_box_sides 000.0
+sidemax 100.d0
+
+structure 2koc_cg.pdb
+  number 1
+  center
+  fixed 50. 50. 50. 0. 0. 0.
+end structure
