@@ -70,8 +70,10 @@ er_t = 87.74-0.4008*Td+9.398*10**(-4)*Td**2-1.41*10**(-6)*Td**3
 print('relative electric constant: ', er_t*20.3/77.6)                        
 dh = 0.304/(np.sqrt(c_ion))
 print('Debye-Huckel screening length: ', dh)
-nMg = 0.526*(c_Mg/0.680)**(0.283)/(1+(c_Mg/0.680)**(0.283)) + 0.0012*(Td-30) 
-#lmd0 = nMg*0.64+0.536                                                        
+if c_Mg == 0:
+    nMg = 0
+else:
+    nMg = 0.526*(c_Mg/0.680)**(0.283)/(1+(c_Mg/0.680)**(0.283)) + 0.0012*(Td-30)                                                       
 lmd0 = 1.265*(nMg/0.172)**0.625/(1+(nMg/0.172)**0.625)
 print('lmd: ', lmd0)
 ffs = {
