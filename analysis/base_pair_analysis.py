@@ -10,7 +10,7 @@ from __future__ import division
 import numpy as np
 import MDAnalysis as mda
 from MDAnalysis.analysis.hydrogenbonds import HydrogenBondAnalysis
-from system import argv
+from sys import argv
 
 psf = argv[1]
 dcd = argv[2]
