@@ -1,0 +1,127 @@
+
+* parameter file for coarse grained RNA
+* based on Tetramer
+*  
+* date: Jan 8, 15:12 by Shanlong Li
+* Latest: Feb 14, 2024
+
+BOND
+!
+!V(bond) = Kb(b - b0)**2
+!
+!Kb: kcal/mole/A**2
+!b0: A
+!
+!atom type Kb          b0
+!
+!bonds in backbone
+BP    BC1    15.0      3.65
+BC1   BC2   100.0      2.32
+BC2   N1C   150.0      1.93   ! C2-NA for A/G
+BC2   NCC   150.0      2.53   ! C2-NA for C/U
+!bonds in base A
+N1C   CNC   500.0      1.63   ! A/G: NA-NB
+N1C   N2C   200.0      2.40   ! A: NA-ND
+CNC   NCN   120.0      3.06   ! A: NB-NC
+NCN   N2C   200.0      2.72   ! A: NC-ND
+!bonds in base G
+N1C   NCN   130.0      3.05   ! G: NA-ND
+CNC   OCN   130.0      3.05   ! G: NB-NC
+OCN   NCN   150.0      2.90   ! G: NC-ND
+!bonds in base C
+NCC   NCN   200.0      2.48   ! C: NA-NB
+NCC   CO    180.0      2.70   ! C: NA-ND
+NCN   CO    120.0      2.95   ! C/U: NB-ND
+!bonds in base U
+NCC   OCN   250.0      2.49   ! U: NA-NB
+OCN   CO    150.0      2.99   ! U: NA-ND
+
+
+THETAS
+!angles in backbone
+BC1   BP    BC1    2.0     105.0
+BP    BC1   BP     4.0     105.0
+BP    BC1   BC2    4.0     112.0
+BC1   BC2   BP    10.0      55.0
+BC1   BC2   N1C    4.0     136.0  ! C1-C2-NA for A/G
+BC1   BC2   NCC    5.0     115.0  ! C1-C2-NA for C/U
+BC2   N1C   CNC   25.0     127.0  ! C2-NA-NB for A/G
+BC2   N1C   N2C   25.0     117.0  ! C2-NA-ND for A
+BC2   N1C   NCN   20.0     116.0  ! C2-NA-ND for G
+BC2   NCC   CO    50.0      59.0  ! C2-NA-NC for C/U
+! internal angle for A:
+N1C   CNC   NCN   80.0      90.0  !  NA-NB-NC
+CNC   NCN   N2C   50.0      73.0  !  NB-NC-ND
+NCN   N2C   N1C   50.0      86.0  !  NC-ND-NA
+! internal angle for G:
+N1C   CNC   OCN   80.0      90.0  !  NA-NB-NC
+CNC   OCN   NCN   50.0      84.0  !  NB-NC-ND
+OCN   NCN   N1C   50.0      72.0  !  NC-ND-NA
+
+PHI
+!phi in backbone
+BP    BC1   BC2   N1C     58.0    1  -165.0    ! P-C1-C2-NA for A/G    increase from 8.0 to 58.0 due to the stacking and pairing
+BP    BC1   BC2   NCC     55.0    1   180.0    ! P-C1-C2-NA for C/U    increase from 5.0 to 55.0 due to the stacking and pairing
+BC1   BC2   N1C   CNC     55.0    1   165.0    ! C1-C2-NA-NB for A/G   increase from 5.0 to 55.0 due to the stacking and pairing
+BC1   BC2   NCC   CO      55.0    1     0.0    !                       increase from 5.0 to 55.0 due to the stacking and pairing 
+
+BC1   BP    BC1   BP       0.0    1   -20.0
+!phi in A/G
+N1C   CNC   N2C   NCN     80.0    1     0.0
+N1C   CNC   NCN   N2C     50.0    1   180.0
+N1C   CNC   NCN   OCN     50.0    1     0.0
+N1C   CNC   OCN   NCN     80.0    1   180.0
+
+
+IMPHI
+BC1   BP    BP    BC2     15.0    0    29.0
+!NA-C2-NB-ND for A
+N1C   BC2   CNC   N2C     40.0    0     0.0
+
+!NA-C2-NB-ND for G
+N1C   BC2   CNC   NCN     20.0    0     0.0
+
+!NA-C2-NB-NC for C
+NCC   BC2   NCN   CO      20.0    0  -180.0
+
+!NA-C2-NB-NC for U
+NCC   BC2   OCN   CO      20.0    0  -180.0
+
+
+NONBONDED  NBXMOD 3  ATOM CDIEL SWITCH VATOM VDISTANCE VSWITCH -
+     CUTNB 16.0  CTOFNB 15.0  CTONNB 11.  EPS 1.0  E14FAC 0.4  WMIN 1.5 
+
+!                 Emin         Rmin/2
+!                 (kcal/mol)   (A)
+BP       0.00     -0.11583      2.4340   0.00     -0.11583     2.4340 !!                         2.4340 !
+BC1      0.00     -0.09922      2.2826   0.00     -0.09922     2.2826 !!                         2.2826 !
+BC2      0.00     -0.13244      2.2826   0.00     -0.13244     2.2826 !!                         2.2826 !
+N1C      0.00     -0.11583      1.7954   0.00     -0.11583     1.7954 !!                         1.9949 !
+CNC      0.00     -0.13244      2.0309   0.00     -0.13244     2.0309 !!                         2.2566 !
+NCN      0.00     -0.14905      2.0089   0.00     -0.14905     2.0089 !!                         2.2321 !
+N2C      0.00     -0.11583      1.8215   0.00     -0.11583     1.8215 !!                         2.0239 !
+OCN      0.00     -0.14905      1.9241   0.00     -0.14905     1.9241 !!                         2.1379 !
+NCC      0.00     -0.11583      2.0452   0.00     -0.11583     2.0452 !!                         2.2724 !
+CO       0.00     -0.09922      1.7170   0.00     -0.09922     1.7170 !!                         1.9078 !
+MG       0.00     -0.10000      3.0000   0.00     -0.10000     3.0000 !!
+
+NBFIX
+!                 Emin         Rmin
+!                 (kcal/mol)   (A)
+BP     MG        -0.50000      5.0000
+NCN    NCN       -0.14905      3.6000
+NCN    OCN       -0.14905      3.3000
+NCN    N2C       -0.13244      3.3000
+NCN    CO        -0.12414      3.8000
+NCN    CNC       -0.14075      3.6000
+OCN    OCN       -0.14905      3.3000
+OCN    N2C       -0.13244      3.3000
+OCN    CO        -0.12414      3.3000
+OCN    CNC       -0.14075      3.6000
+N2C    CO        -0.10753      4.0000
+
+HBOND AEXP 10 REXP 12 HAEX 4 AAEX 2   NOACCEPTORS  HBNOEXCLUSIONS  ALL  -
+   CUTHB 6.0 CTOFHB 5.0 CTONHB 4.0  CUTHA 100.0  CTOFHA 90.0  CTONHA 90.0
+
+
+END

@@ -1,0 +1,125 @@
+*topology file for coarse grained RNA
+*
+   20    1              
+MASS   301 BP    94.970   ! phosphate
+MASS   302 BC1   48.065   ! C1 for ribose ring
+MASS   303 BC2   51.045   ! C2 for ribose ring
+MASS   304 N1C   26.018   ! base -C-N-
+MASS   305 CNC   39.037   ! base -C=N-C- for A, G
+MASS   306 NCN   42.041   ! base -C(NH2)=N- for A, G, C
+MASS   307 N2C   27.026   ! base -C=N- for A
+MASS   308 OCN   43.025   ! base -C(=O)-NH- for G, U
+MASS   309 NCC   42.041   ! base -N-C=C- for C, U
+MASS   310 CO    28.010   ! base -C(=O)- for C, U
+MASS   320 MG    24.305   ! fully hydrated Mg2+
+MASS   321 SMG   24.305   ! chelated Mg2+
+
+DECL -C1
+DECL +P
+DECL +C1
+
+AUTOGENERATE
+DEFA FIRS NTER LAST CTER
+
+RESI ADE         -1.00  !                               
+GROUP                   !                 NB-NC                    
+ATOM P    BP     -1.00  !                 |  |                                              
+GROUP                   !                 NA-ND                      
+ATOM C1   BC1     0.00  !                 |                            
+ATOM C2   BC2     0.00  !      --P---C1---C2            
+GROUP                   !            |                   
+ATOM NA   N1C     0.00  !            +P            
+ATOM NB   CNC     0.00  !      
+ATOM NC   NCN     0.00  !
+ATOM ND   N2C     0.00  !  
+BOND P    C1        C1   C2        C1   +P        C2   NA
+BOND NA   NB        NA   ND        NB   NC        NC   ND
+ANGL P    C1   C2        P    C1   +P        -C1  P    C1
+ANGL C1   C2   NA        C2   NA   NB        C2   NA   ND
+ANGL NA   NB   NC        NB   NC   ND        NC   ND   NA
+ANGL C1   C2   +P
+DIHE NA   NB   ND   NC        P    C1   C2   NA        C1   C2   NA   NB
+DIHE NA   NB   NC   ND        -C1  P    C1   +P
+IMPR NA   C2   NB   ND        C1   P    +P   C2
+
+
+RESI GUA         -1.00  ! 
+GROUP                   !                 NB-NC                    
+ATOM P    BP     -1.00  !                 |  |                                              
+GROUP                   !                 NA-ND                      
+ATOM C1   BC1     0.00  !                 |                            
+ATOM C2   BC2     0.00  !      --P---C1---C2            
+GROUP                   !            |                   
+ATOM NA   N1C     0.00  !            +P            
+ATOM NB   CNC     0.00  !      
+ATOM NC   OCN     0.00  !
+ATOM ND   NCN     0.00  !  
+BOND P    C1        C1   C2        C1   +P        C2   NA
+BOND NA   NB        NA   ND        NB   NC        NC   ND
+ANGL P    C1   C2        P    C1   +P        -C1  P    C1
+ANGL C1   C2   NA        C2   NA   NB        C2   NA   ND
+ANGL NA   NB   NC        NB   NC   ND        NC   ND   NA
+ANGL C1   C2   +P
+DIHE NA   NB   ND   NC        P    C1   C2   NA        C1   C2   NA   NB
+DIHE NA   NB   NC   ND        -C1  P    C1   +P
+IMPR NA   C2   NB   ND        C1   P    +P   C2
+ 
+
+RESI CYT         -1.00  ! 
+GROUP                   !                    NB                    
+ATOM P    BP     -1.00  !                   / \                                                
+GROUP                   !                 NA---NC                      
+ATOM C1   BC1     0.00  !                 |                            
+ATOM C2   BC2     0.00  !      --P---C1---C2            
+GROUP                   !            |                   
+ATOM NA   NCC     0.00  !            +P            
+ATOM NB   NCN     0.00  !      
+ATOM NC   CO      0.00  !
+BOND P    C1        C1   C2        C1   +P
+BOND C2   NA        NA   NB        NA   NC        NB   NC
+ANGL P    C1   C2        P    C1   +P        -C1  P    C1
+ANGL C1   C2   NA        C2   NA   NC        C1   C2   +P
+DIHE P    C1   C2   NA        C1   C2   NA   NC        -C1  P    C1   +P
+IMPR NA   C2   NB   NC        C1   P    +P   C2
+ 
+ 
+RESI URA         -1.00  !                    
+GROUP                   !                    NB                    
+ATOM P    BP     -1.00  !                   / \                                                
+GROUP                   !                 NA---NC                      
+ATOM C1   BC1     0.00  !                 |                            
+ATOM C2   BC2     0.00  !      --P---C1---C2            
+GROUP                   !            |                   
+ATOM NA   NCC     0.00  !            +P            
+ATOM NB   OCN     0.00  !      
+ATOM NC   CO      0.00  !
+BOND P    C1        C1   C2        C1   +P
+BOND C2   NA        NA   NB        NA   NC        NB   NC
+ANGL P    C1   C2        P    C1   +P        -C1  P    C1
+ANGL C1   C2   NA        C2   NA   NC        C1   C2   +P
+DIHE P    C1   C2   NA        C1   C2   NA   NC        -C1  P    C1   +P
+IMPR NA   C2   NB   NC        C1   P    +P   C2
+
+
+RESI RIB         -1.00  !                    
+GROUP                   !     --P---C1---C2                                  
+ATOM P    BP     -1.00  !           |                                                                   
+GROUP                   !           +P                                    
+ATOM C1   BC1     0.00  !                                         
+ATOM C2   BC2     0.00  !
+BOND P    C1        C1   C2        C1   +P
+ANGL P    C1   C2        P    C1   +P        -C1  P    C1
+ANGL C1   C2   +P
+IMPR C1   P    +P   C2
+
+
+RESI MG+          2.00  !                    
+GROUP                   !                       
+ATOM MG   MG      2.00  !                                                                  
+
+
+RESI SMG          2.00  !                    
+GROUP                   !                       
+ATOM MG   SMG     2.00  ! 
+
+END

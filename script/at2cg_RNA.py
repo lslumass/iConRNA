@@ -78,7 +78,7 @@ with open(out, 'w') as f:
                 sel = f"name N1 C5 H5 C6 H6 and resid {resid} and segid {segid}"
                 aa2cg(sel, resid, segid, 'NA')
                 idx += 1
-                sel = f"name C4 O4 H3 H3 and resid {resid} and segid {segid}"
+                sel = f"name C4 O4 N3 H3 and resid {resid} and segid {segid}"
                 aa2cg(sel, resid, segid, 'NB')
                 idx += 1
                 sel = f"name C2 O2 and resid {resid} and segid {segid}"
