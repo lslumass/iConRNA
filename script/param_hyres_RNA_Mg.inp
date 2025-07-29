@@ -111,13 +111,7 @@ NBFIX
 BP     MG        -0.50000      5.0000
 NCN    NCN       -0.14905      3.6000
 NCN    OCN       -0.14905      3.3000
-NCN    N2C       -0.13244      3.3000
 NCN    CO        -0.12414      3.8000
-NCN    CNC       -0.14075      3.6000
-OCN    OCN       -0.14905      3.3000
-OCN    N2C       -0.13244      3.3000
-OCN    CO        -0.12414      3.3000
-OCN    CNC       -0.14075      3.6000
 N2C    CO        -0.10753      4.0000
 
 HBOND AEXP 10 REXP 12 HAEX 4 AAEX 2   NOACCEPTORS  HBNOEXCLUSIONS  ALL  -
