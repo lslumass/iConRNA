@@ -213,7 +213,7 @@ def SimpleRNASystem(psf, system, ffs):
 
 # 0) set variables in the simulation
 gpu_id = "0"
-top_inp, param_inp = 'param_hyres_RNA_Mg.inp', 'top_hyres_RNA_Mg.inp'
+top_inp, param_inp = 'param_iConRNA.inp', 'top_iConRNA.inp'
 
 # input parameters
 parser = argparse.ArgumentParser()

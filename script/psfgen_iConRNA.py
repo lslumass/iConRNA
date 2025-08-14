@@ -5,7 +5,7 @@ import argparse
 import os
 
 # Global varibale
-RNA_topology, _ = utils.load_ff('RNA')
+RNA_topology = "./top_iConRNA.inp"
 
 def main():
     parser = argparse.ArgumentParser(description="generate PSF for Hyres systems",
