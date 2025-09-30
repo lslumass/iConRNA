@@ -256,7 +256,8 @@ elif ensemble not in ['NPT', 'NVT', 'non']:
     exit(1)
 
 # simulation parameters
-dt = 0.0001*unit.picoseconds		                               # equilibration time step, production time step is 0.004
+dt_equil = 0.001*unit.picoseconds		                # equilibration time step
+dt_prod = 0.008*unit.picoseconds				# production time step
 total_step = 250000000                                             # total step
 equil_step = 10000
 temperture = T*unit.kelvin                                      # temperature
@@ -331,7 +332,7 @@ elif ensemble == 'non':
     print('This is a non-periodic system')
 else:
     print('Only NPT, NVT, and non-periodic system are supported!')
-integrator = LangevinMiddleIntegrator(temperture, friction, dt)
+integrator = LangevinMiddleIntegrator(temperture, friction, dt_equil)
 plat = Platform.getPlatformByName('CUDA')
 prop = {'Precision': 'mixed', 'DeviceIndex': gpu_id}
 simulation = Simulation(top, system, integrator, plat, prop)
@@ -356,7 +357,7 @@ simulation.reporters.append(StateDataReporter('system.log', log_freq, progress=T
 ))
 #simulation.reporters.append(CheckpointReporter('system.chk', dcd_freq*10))
 
-simulation.integrator.setStepSize(0.008*unit.picoseconds)
+simulation.integrator.setStepSize(dt_prod)
 print('\n# Production simulation running:')
 simulation.step(total_step)
 
