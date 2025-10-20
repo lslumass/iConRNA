@@ -268,6 +268,7 @@ pressure = 1*unit.atmosphere                                    # pressure in NP
 friction = 0.1/unit.picosecond                                  # friction coefficient in Langevin
 
 # force field parameters
+cutoff = 1.0*unit.nanometer                                 # nonbonded cutoff for LJ, electrostatics cutoff is 1.8 nm set in CustomNonbondedForce
 Td = T-273
 er_t = 87.74-0.4008*Td+9.398*10**(-4)*Td**2-1.41*10**(-6)*Td**3
 print('relative electric constant: ', er_t*20.3/77.6)                        
@@ -303,13 +304,14 @@ pdb = PDBFile(pdb_file)
 psf = CharmmPsfFile(psf_file)
 top = psf.topology
 params = CharmmParameterSet(top_inp, param_inp)
+# cutoff
 if ensemble == 'non':
-    system = psf.createSystem(params, nonbondedMethod=CutoffNonPeriodic, constraints=HBonds)
+    system = psf.createSystem(params, nonbondedMethod=CutoffNonPeriodic, constraints=HBonds, nonbondedCutoff=cutoff)
 else:
     psf.setBox(lx, ly, lz)
     top.setPeriodicBoxVectors((a, b, c))
     top.setUnitCellDimensions((lx, ly,lz))
-    system = psf.createSystem(params, nonbondedMethod=CutoffPeriodic, constraints=HBonds)
+    system = psf.createSystem(params, nonbondedMethod=CutoffPeriodic, constraints=HBonds, nonbondedCutoff=cutoff)
     system.setDefaultPeriodicBoxVectors(a, b, c)
 
 system = SimpleRNASystem(psf, system, ffs)
