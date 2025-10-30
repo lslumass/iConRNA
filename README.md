@@ -1,10 +1,11 @@
 # Intermediate resolution model for Condensation of RNA (iConRNA)
 <img src="./image1.png"/>       
 
-## 
-**iConRNA is developed for modeling RNA condensation with explicit Mg2+ ions.**   
-**Authors: Shanlong Li and Jianhan Chen**   
-**Reference: [S. Li, & J. Chen, Driving forces of RNA condensation revealed through coarse-grained modeling with explicit Mg2+, Proc. Natl. Acad. Sci. U.S.A. 122 (43) e2504583122, (2025).](https://www.pnas.org/doi/10.1073/pnas.2504583122)**
+## About
+iConRNA (**i**ntermediate resolution model for **Con**densates of **RNA**) is developed for modeling RNA condensation with explicit Mg2+ ions.   
+iConRNA was developed by Shanlong Li and Jianhan Chen in the [Chen Lab](https://people.chem.umass.edu/jchenlab/)   
+For more information, please take a look at our paper:   
+**[S. Li, & J. Chen, Driving forces of RNA condensation revealed through coarse-grained modeling with explicit Mg2+, Proc. Natl. Acad. Sci. U.S.A. 122 (43) e2504583122, (2025).](https://www.pnas.org/doi/10.1073/pnas.2504583122)**
 ## 0. dependencies
 1. [HyresBuilder](https://github.com/lslumass/HyresBuilder)
 2. [psfgen-python](https://psfgen.robinbetz.com/)
