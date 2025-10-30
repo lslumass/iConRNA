@@ -2,7 +2,7 @@
 <img src="./image1.png"/>       
 
 ## About
-iConRNA (**i**ntermediate resolution model for **Con**densates of **RNA**) is developed for modeling RNA condensation with explicit Mg2+ ions.   
+iConRNA is developed for modeling RNA condensation with explicit Mg2+ ions.   
 iConRNA was developed by Shanlong Li and Jianhan Chen in the [Chen Lab](https://people.chem.umass.edu/jchenlab/)   
 For more information, please take a look at our paper:   
 **[S. Li, & J. Chen, Driving forces of RNA condensation revealed through coarse-grained modeling with explicit Mg2+, Proc. Natl. Acad. Sci. U.S.A. 122 (43) e2504583122, (2025).](https://www.pnas.org/doi/10.1073/pnas.2504583122)**
