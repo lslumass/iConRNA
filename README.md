@@ -6,7 +6,7 @@ iConRNA i an intermediate resolution coarse-grained model for modeling RNA conde
 It was developed by **Shanlong Li** and **Jianhan Chen** in the [Chen Lab](https://people.chem.umass.edu/jchenlab/).   
 For more information, please take a look at our paper:   
 **[S. Li, & J. Chen, Driving forces of RNA condensation revealed through coarse-grained modeling with explicit Mg2+, Proc. Natl. Acad. Sci. U.S.A. 122 (43) e2504583122, (2025).](https://www.pnas.org/doi/10.1073/pnas.2504583122)**
-## 0. dependencies
+## Dependencies
 1. [HyresBuilder](https://github.com/lslumass/HyresBuilder)
 2. [psfgen-python](https://psfgen.robinbetz.com/)
 3. [CHARMM-GUI](https://www.charmm-gui.org/)
